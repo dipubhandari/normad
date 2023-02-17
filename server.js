@@ -7,7 +7,7 @@ dotenv.config()
 import cors from 'cors'
 import mongoose from 'mongoose'
 import path from 'path'
-
+import userRoute from './routes/usersRoute.js'
 
 const app = express()
 const server = http.createServer(app)
@@ -19,10 +19,9 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // router
-
-
+app.use('/', userRoute)
+// connection
 connection(process.env.MONGO_URL)
-// app.use('/',categoryRouter)
 
 
 // listen the app

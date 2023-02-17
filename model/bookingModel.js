@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const Booking_Schema = mongoose.Schema(
+const Booking_Schema = new mongoose.Schema(
   {
     fullName: {
       type: String,
@@ -18,7 +18,7 @@ const Booking_Schema = mongoose.Schema(
         message: "Please enter a valid email",
       },
     },
-    alternativeEmail: {
+    alternativeemail: {
       type: String,
       trim: true,
       lowercase: true,
@@ -53,14 +53,13 @@ const Booking_Schema = mongoose.Schema(
       type: Number,
       required: [true, "EstimatedDay is required"],
     },
-    triptDate: {
+    tripDate: {
       type: Date,
       required: [false, "TripDate is required"],
     },
     message: {
       type: String,
       required: [true, "Message is required"],
-
       lowercase: true,
     },
   },
