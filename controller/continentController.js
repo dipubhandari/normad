@@ -18,8 +18,7 @@ class ContinentController {
     }
 
     // userRoute.get('/continents', ContinentController.Continents)
-    static Continents = async (req, res) => {
-
+    static Continents = async (req, res) => { 
         try {
             const continents = await continentModel.find()
             const continentArr = continents.map((item, id) => {

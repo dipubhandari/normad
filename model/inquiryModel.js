@@ -1,24 +1,22 @@
 import mongoose from "mongoose";
 
-const Inquiry_Schema = mongoose.Schema(
+const Inquiry_Schema = new mongoose.Schema(
   {
-    tripName: {
+    tripname: {
       type: String,
       required: [true, "Trip name  is required"],
     },
-    fullName: {
+    fullname: {
       type: String,
       required: [true, "Full name  is required"],
     },
-    phoneNumber: {
+    phone: {
       type: Number,
       required: [true, "CurrentCity is required"],
     },
     message: {
       type: String,
       required: [true, "Message is required"],
-
-      lowercase: true,
     },
   },
   {

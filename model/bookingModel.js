@@ -1,73 +1,21 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
-const Booking_Schema = new mongoose.Schema(
-  {
-    fullName: {
-      type: String,
-      required: [true, "Full Name is required"],
-    },
-    email: {
-      type: String,
-      required: [true, "Email is required"],
-      trim: true,
-      lowercase: true,
-      validate: {
-        validator: function (v) {
-          return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
-        },
-        message: "Please enter a valid email",
-      },
-    },
-    alternativeemail: {
-      type: String,
-      trim: true,
-      lowercase: true,
-      validate: {
-        validator: function (v) {
-          return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
-        },
-        message: "Please enter a valid email",
-      },
-    },
-    phoneNumber: {
-      type: Number,
-      required: [true, "CurrentCity is required"],
-    },
-    currentCity: {
-      type: String,
-      required: [true, "CurrentCity is required"],
-    },
-    country: {
-      type: String,
-      required: [true, "Country is required"],
-    },
-    tripName: {
-      type: String,
-      required: [true, "TripName is required"],
-    },
-    numberOfTravellers: {
-      type: Number,
-      required: [true, "Number of travellers is required"],
-    },
-    estimatedDay: {
-      type: Number,
-      required: [true, "EstimatedDay is required"],
-    },
-    tripDate: {
-      type: Date,
-      required: [false, "TripDate is required"],
-    },
-    message: {
-      type: String,
-      required: [true, "Message is required"],
-      lowercase: true,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
+const Booking_Schema = new mongoose.Schema({
 
-const BookingModel = mongoose.model("booking", Booking_Schema);
+  fullname: { type: String, require: true },
+  email: { type: String, require: true },
+  secondemail: { type: String },
+  phone: { type: Number, require: true },
+  city: { type: String, require: true },
+  country: { type: String, require: true },
+  tripname: { type: String, require: true },
+  travellers: { type: Number, require: true },
+  day: { type: Number, require: true },
+  tripdate: { type: Date, require: true },
+  message: { type: String, require: true },
 
-export default BookingModel;
+})
+
+const Booking_Model = mongoose.model('Booking', Booking_Schema)
+
+export default Booking_Model

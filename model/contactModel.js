@@ -1,56 +1,16 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
-const Contact_Schema = mongoose.Schema(
-  {
-    fullName: {
-      type: String,
-      required: [true, "Full Name is required"],
-    },
-    email: {
-      type: String,
-      required: [true, "Email is required"],
-      trim: true,
-      lowercase: true,
-      validate: {
-        validator: function (v) {
-          return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
-        },
-        message: "Please enter a valid email",
-      },
-    },
+const Contact_Schema = new mongoose.Schema({
 
-    phoneNumber: {
-      type: Number,
-      required: [true, "CurrentCity is required"],
-    },
-    country: {
-      type: String,
-      required: [true, "Country is required"],
-    },
-    findus: {
-      type: String,
-      required: [true, "Country is required"],
-    },
-    expectedDateOfTravel: {
-      type: Number,
-      required: [true, "Expected Date Of Travel is required"],
-    },
-    triptDate: {
-      type: Date,
-      required: [false, "TripDate is required"],
-    },
-    message: {
-      type: String,
-      required: [true, "Message is required"],
+  name: { type: String, require: true },
+  email: { type: String, require: true },
+  phone: { type: Number, require: true },
+  country: { type: String, require: true },
+  findus: { type: String, reqire: true },
+  traveldate: { type: Date, require: true },
+  message: { type: String, require: true }
+})
 
-      lowercase: true,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
+const Contact_Model = mongoose.model('Contact', Contact_Schema)
 
-const ContactModel = mongoose.model("contact", Contact_Schema);
-
-export default ContactModel;
+export default Contact_Model

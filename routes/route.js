@@ -16,5 +16,9 @@ userRoute.post('/booking', BookingController.Booking)
 userRoute.post('/suscribe', BookingController.Suscribe)
 userRoute.get('/allsuscriber', BookingController.AllSuscriber)
 
+// inquiry
+userRoute.post('/user-inquiry', BookingController.Inquiry)
+// contact us
+userRoute.post('/contact-us', BookingController.Contact)
 // exporting the routes
 export default userRoute;

@@ -7,7 +7,7 @@ dotenv.config()
 import cors from 'cors'
 import mongoose from 'mongoose'
 import path from 'path'
-import userRoute from './routes/usersRoute.js'
+import userRoute from './routes/route.js'
 
 const app = express()
 const server = http.createServer(app)
