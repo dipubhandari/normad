@@ -54,6 +54,9 @@ class BookingController {
                 res.send({ error_msg: "Please Enter the details" })
             }
             else {
+                if (phone.length < 10 || phone.length > 10 || typeof phone != 'number') {
+                    res.send({ error_msg: "Phone number is not valid" })
+                }
                 const validateEmail = uservalidator.validate(email)
                 if (!(validateEmail)) {
                     res.send({ error_msg: "Please send correct Email" })
@@ -177,10 +180,16 @@ class BookingController {
         try {
             // getting input
             let { name, email, phone, country, findus, traveldate, message } = req.body
+            const numberType = typeof phone
             if (!(name && email && phone && country && findus && traveldate && message)) {
                 res.send({ error_msg: "Please fill all the details" })
             }
+            if ((phone.length !== 10) || typeof phone != 'number') {
+                res.status(200).send({ error_msg: "Phone number is not valid" })
+            }
             else {
+                
+                console.log(typeof phone)
                 const validateEmail = uservalidator.validate(email)
                 if (!(validateEmail)) {
                     res.send({ error_msg: "Please send correct Email" })
