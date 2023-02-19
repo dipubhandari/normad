@@ -4,3 +4,12 @@ routes for feting continent
 
 //routes for new continent
 /new-continent  -> POST keys for react {}
+
+
+//routes for booking
+/booking  -> POST keys {}
+
+//route for inquiry
+/user-inquiry -> POST keys{}
+
+//
