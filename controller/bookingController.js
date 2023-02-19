@@ -121,7 +121,12 @@ class BookingController {
         if (!(tripname && fullname && email && phone && message)) {
             res.send({ error_msg: "Please enter all fields" })
         }
+      
         else {
+            const validateEmail = uservalidator.validate(email)
+            if (!validateEmail) {
+                res.send({error_msg:" Email is not valid"})
+            }
             try {
                 // send email
                 let transporter = nodemailer.createTransport({
