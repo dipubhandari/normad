@@ -11,7 +11,9 @@ import userRoute from './routes/route.js'
 
 const app = express()
 const server = http.createServer(app)
-
+app.get('/', () => {
+    res.send('The Nomad Server is ready to go.')
+})
 app.use(cors())
 app.use(express.json());
 // Increase the maximum allowed request size to 50mb

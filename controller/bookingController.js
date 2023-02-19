@@ -121,13 +121,14 @@ class BookingController {
         if (!(tripname && fullname && email && phone && message)) {
             res.send({ error_msg: "Please enter all fields" })
         }
-      
+
         else {
-            const validateEmail = uservalidator.validate(email)
-            if (!validateEmail) {
-                res.send({error_msg:" Email is not valid"})
-            }
             try {
+                const validateEmail = uservalidator.validate(email)
+                if (!validateEmail) {
+                    res.send({ error_msg: " Email is not valid" })
+                }
+
                 // send email
                 let transporter = nodemailer.createTransport({
                     service: 'gmail',
@@ -180,7 +181,10 @@ class BookingController {
                 res.send({ error_msg: "Please fill all the details" })
             }
             else {
-
+                const validateEmail = uservalidator.validate(email)
+                if (!(validateEmail)) {
+                    res.send({ error_msg: "Please send correct Email" })
+                }
                 const contact = await Contact_Model.create({
                     name, email, phone, country, findus, traveldate, message
                 })
