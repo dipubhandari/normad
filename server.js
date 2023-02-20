@@ -11,7 +11,7 @@ import userRoute from './routes/route.js'
 
 const app = express()
 const server = http.createServer(app)
-app.get('/', () => {
+app.get('/', (req,res) => {
     res.send('The Nomad Server is ready to go.')
 })
 app.use(cors())
