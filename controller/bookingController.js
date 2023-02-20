@@ -53,7 +53,7 @@ class BookingController {
             if (!(fullname && email && phone && city && country && tripname && travellers && day && tripdate && message)) {
                 res.send({ error_msg: "Please Enter the details" })
             }
-            else if (phone.toString().length != 10 || typeof phone != 'number') {
+            else if (phone.toString().length < 10 || typeof phone != 'number') {
                 res.send({ error_msg: "phone number is not valid" })
             }
             else {
@@ -131,7 +131,7 @@ class BookingController {
                 console.log(tripname, fullname, email, phone, message)
                 res.send({ error_msg: "Please enter all fields" })
             }
-            else if (typeof phone != 'number' || phone.toString().length != 10) {
+            else if (typeof phone != 'number' || phone.toString().length < 10) {
                 res.send({ error_msg: "phone number is not valid" })
             }
             else {
@@ -189,7 +189,7 @@ class BookingController {
             if (!(name && email && phone && country && findus && traveldate && message)) {
                 res.send({ error_msg: "Please fill all the details" })
             }
-            else if (typeof phone != 'number' || phone.toString().length != 10) {
+            else if (typeof phone != 'number' || phone.toString().length < 10) {
                 res.status(200).send({ error_msg: "phone number is not valid" })
             }
             else {
