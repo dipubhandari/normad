@@ -48,7 +48,7 @@ class BookingController {
         try {
             // getting data from user
             const { fullname, email, phone, city, country, tripname, travellers, day, tripdate, message } = req.body
-            const secondemail = req.body.secondemail || 'null'
+            const secondemail = req.body.secondemail || null
             // validating the input
             if (!(fullname && email && phone && city && country && tripname && travellers && day && tripdate && message)) {
                 res.send({ error_msg: "Please Enter the details" })
@@ -60,7 +60,7 @@ class BookingController {
 
                 const validateEmail = uservalidator.validate(email)
                 let validateEmailII
-                if (secondemail != 'null') {
+                if (secondemail != null) {
                     validateEmailII = uservalidator.validate(secondemail)
                 }
                 else {
@@ -88,8 +88,8 @@ class BookingController {
                      <br />
                      <br />
                   <b>Name :</b> <p>${fullname}</p>  <br />
-                  <b>email : <p>${email}</p>  <br />
-                  <b>Secondary Email : <p>${secondemail}</p>  <br />
+                  <b>email :</b> <p>${email}</p>  <br />
+                  <b>Secondary Email :</b> <p>${secondemail || 'Not Available'}</p>  <br />
                   <b>phone :</b> <p>${phone}</p>  <br />
                   <b>Address-Ciry :</b> <p>${city}</p>  <br />
                   <b>Country :</b> <p>${country}</p>  <br />
@@ -156,12 +156,11 @@ class BookingController {
                         <b>Hello Someone wants to inquiry on Nomad....</b> <br />
                         Here is the details
                          <br />
-                
-                <b>Trip name:<b/>  ${tripname}  <br />
-                        <b> Name:<b/> ${fullname}  <br />
-                        <b>Email:<b/>${email} <br />
-                        <b>phone:<b/>${phone}
-                        <b>Message:<b/>${message}
+                        <b>Trip name:</b>  ${tripname}  <br />
+                        <b> Name:</b> ${fullname}  <br />
+                        <b>Email:</b>${email} <br />
+                        <b>phone:</b>${phone}<br/>
+                        <b>Message:</b>${message}
                                              
                         `
                     };
@@ -219,12 +218,12 @@ class BookingController {
                             html: `
                         Hello, ${name} wants to contact on Nomad.... <br />
                         Here is the details <br /> <br />
-                       <b>Email:<b/>  ${email} <br /> <br />
-                        <b> phone:<b/> ${phone}  <br /> <br />
-                        <b>Country:<b/>${country} <br /> <br />
-                        <b>Find You By:<b/>${findus} <br /> <br />
-                        <b>Travel Date:<b/>${traveldate.split(['T'][0])} <br /> <br />
-                        <b>Message:<b/>${message}
+                       <b>Email:</b>  ${email} <br /> <br />
+                        <b> phone:</b> ${phone}  <br /> <br />
+                        <b>Country:</b>${country} <br /> <br />
+                        <b>Find You By:</b>${findus} <br /> <br />
+                        <b>Travel Date:</b>${traveldate.split(['T'][0])} <br /> <br />
+                        <b>Message:</b>${message}
                         `
                         };
                         transporter.sendMail(mailOptions, function (error, info) {
