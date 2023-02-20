@@ -80,7 +80,7 @@ class BookingController {
                     });
                     let mailOptions = {
                         from: '<Nomad Server>',
-                        to: '<realdipubhandari@gmail.com>',
+                        to: '<thenomad.data@gmail.com>',
                         subject: 'Booking...',
                         html: `
                     <b>Hello Someone wants to book trip Here is the details....</b>
@@ -150,7 +150,7 @@ class BookingController {
                     });
                     let mailOptions = {
                         from: '<Nomad Server>',
-                        to: '<realdipubhandari@gmail.com>',
+                        to: '<thenomad.data@gmail.com>',
                         subject: 'Booking...',
                         html: `
                         <b>Hello Someone wants to inquiry on Nomad....</b> <br />
@@ -213,7 +213,7 @@ class BookingController {
                         })
                         let mailOptions = {
                             from: '<Nomad Server>',
-                            to: '<realdipubhandari@gmail.com>',
+                            to: '<thenomad.data@gmail.com>',
                             subject: 'Booking...',
                             html: `
                         Hello, ${name} wants to contact on Nomad.... <br />

@@ -10,6 +10,7 @@ const Inquiry_Schema = new mongoose.Schema(
       type: String,
       required: [true, "Full name  is required"],
     },
+    email: { type: String, require: true },
     phone: {
       type: Number,
       required: [true, "CurrentCity is required"],
